@@ -1,8 +1,14 @@
 package operation;
 
+import computation.Computation;
+
+import java.util.List;
+
 /**
- * Created by zawadzkip on 12/16/15.
+ * Created by gillh on 12/20/15.
+ *
+ * This Operation interface will define the methods necessary for any kind of operation
  */
 public interface Operation {
-
+    public Computation calc(List<Integer> numbers) throws Exception;
 }
