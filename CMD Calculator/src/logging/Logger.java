@@ -41,6 +41,30 @@ public class Logger {
     }
 
     /**
+     *
+     * Get total number of logs in stack.
+     * @return returns the current total number of logs.
+     */
+    public int getNumLogs(){
+        return previousComputations.size();
+    }
+
+    /**
+     * Gets the most recent computation on the stack.
+     * @return returns the most computation object that is on the stack.
+     */
+    public Computation getPastComputation(){
+        return previousComputations.peek();
+    }
+
+    /**
+     * Clears the history of logs.
+     */
+    public void clearLogHistory(){
+        previousComputations = new Stack<>();
+    }
+
+    /**
      * The printNLogs will print the number of logs requested by the user. If the number of logs exceeds the size of the
      * list, then it will automatically print the entire list.
      *
