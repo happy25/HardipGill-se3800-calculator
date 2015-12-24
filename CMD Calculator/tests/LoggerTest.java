@@ -17,39 +17,9 @@ import static org.testng.Assert.*;
  */
 public class LoggerTest {
 
+    public LoggerTest(){}
+
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();  // this object will hold the text that is printed to console
-
-    @BeforeMethod
-    public void setUp() throws Exception {
-        System.setOut(new PrintStream(outContent));     // set the outContent as holding the printed text
-    }
-
-    @AfterMethod
-    public void tearDown() throws Exception {
-        outContent.reset();                             // clear contents of outContent
-        System.setOut(null);                            // reset System.out
-    }
-
-    /**
-     * This method will test the singleton functionality of the Logger class
-     * @throws Exception
-     */
-    @Test
-    public void testGetInstance() throws Exception {
-        Logger loggerInst1 = Logger.getInstance();          // make one reference to class
-        Logger loggerInst2 = Logger.getInstance();          // mak another referenct to class
-
-        assertEquals(true, loggerInst1 == loggerInst2, "Logger instances should be the same instance");  // both references should point to same object
-    }
-
-    /**
-     * This method will test the functionality of the log() method
-     * @throws Exception
-     */
-    @Test
-    public void testLog() throws Exception {
-        //TODO: Need a "getNumComputations" method in order to test this.
-    }
 
     /**
      * This Computation array holds a list of computation objects will be used in the tests located below
@@ -57,11 +27,11 @@ public class LoggerTest {
      */
     private static Computation[] computations(){
         return new Computation[]{
-                new Computation("ADD","[1,2,3]","6.0"),
-                new Computation("SUB","[1,2,3]","-4.0"),
-                new Computation("MULT","[1,2,3]","6.0"),
-                new Computation("DIV","[1,2,4]","0.125"),
-                new Computation("SQR","[2]","4.0")
+                new Computation("ADD","[1,2,3]",6.0),
+                new Computation("SUB","[1,2,3]",-4.0),
+                new Computation("MULT","[1,2,3]",6.0),
+                new Computation("DIV","[1,2,4]",0.125),
+                new Computation("SQR","[2]",4.0)
         };
     }
 
@@ -86,6 +56,112 @@ public class LoggerTest {
     private static String PRINT_N_LOGS_ERROR_INVALID_INDEX = "Unable to print log: Please request at least one log";
     private static String PRINT_N_LOGS_ERROR_NO_LOGS = "No Logs to Display";
 
+    @BeforeMethod
+    public void setUp() throws Exception {
+        System.setOut(new PrintStream(outContent));     // set the outContent as holding the printed text
+    }
+
+    @AfterMethod
+    public void tearDown() throws Exception {
+        outContent.reset();                             // clear contents of outContent
+        Logger.getInstance().clearLogHistory();         // clear log history
+        System.setOut(null);                            // reset System.out
+    }
+
+    /**
+     * This method will test the singleton functionality of the Logger class
+     * @throws Exception
+     */
+    @Test
+    public void testGetInstance() throws Exception {
+        Logger loggerInst1 = Logger.getInstance();          // make one reference to class
+        Logger loggerInst2 = Logger.getInstance();          // mak another referenct to class
+
+        assertEquals(true, loggerInst1 == loggerInst2, "Logger instances should be the same instance");  // both references should point to same object
+    }
+
+    /**
+     * This method will test the functionality of the log() method
+     * @throws Exception
+     */
+    @Test
+    public void testLog() throws Exception {
+        Computation[] comps = computations();
+        Logger logger = Logger.getInstance();
+
+        logger.log(comps[0]);
+
+        assertEquals(logger.getNumLogs(),1, "Should be "+1+" was "+logger.getNumLogs());
+
+        logger.log(comps[1]);
+        logger.log(comps[2]);
+
+        assertEquals(logger.getNumLogs(),3,"Should be "+3+" was "+logger.getNumLogs());
+    }
+
+    /**
+     * This is a data provider for the testGetComputation method.
+     * It holds the {array of computations to log, index of computation to get, expected computation output}
+     * @return
+     */
+    @DataProvider(name = "testGetComputation")
+    private static Object[][] testGetComputationExpectedResults(){
+        return new Object [][]{
+                {new Computation[0],0,true,""},
+                {new Computation[0],1,true,""},
+                {new Computation[0],-1,true,""},
+                {computations(),0,false,computationsToString()[0]},
+                {computations(),1,false,computationsToString()[1]},
+                {computations(),2,false,computationsToString()[2]},
+                {computations(),3,false,computationsToString()[3]},
+                {computations(),4,false,computationsToString()[4]},
+                {computations(),-1,true,""},
+                {computations(),5,true,""},
+        };
+    }
+
+    /**
+     * This method will test the getComputation() method
+     * @param comps             computation array
+     * @param indexToGet        index of computation that is to be retrieved
+     * @param expectedResult    expected computation string
+     * @throws Exception
+     */
+    @Test(dataProvider = "testGetComputation")
+    public void testGetComputation(Computation[] comps, int indexToGet, boolean shouldBeNull, String expectedResult) throws Exception{
+        Logger logger = Logger.getInstance();
+
+        for(Computation comp: comps){
+            logger.log(comp);
+        }
+        if(shouldBeNull){
+            System.out.println(indexToGet);
+            assertNull(logger.getComputation(indexToGet));
+        }
+        else {
+            assertEquals(logger.getComputation(indexToGet).computationString(), expectedResult, "Should be " + expectedResult + " was " + logger.getNumLogs());
+        }
+    }
+
+    /**
+     * This method will test the clearLogHistory() method
+     * @throws Exception
+     */
+    @Test
+    public void testClearLogHistory() throws Exception{
+        Logger logger = Logger.getInstance();
+
+        for (Computation comp: computations()){         // add all computations
+            logger.log(comp);
+        }
+
+        assertEquals(logger.getNumLogs(),computations().length);
+
+        logger.clearLogHistory();       // clear history
+
+        assertEquals(logger.getNumLogs(),0);  // getNumLogs should be 0 now
+    }
+
     /**
      * This method will test the functionality of printMostRecentLog() method.
      * @throws Exception
@@ -106,8 +182,10 @@ public class LoggerTest {
         logger.log(comps[1]);
         logger.log(comps[2]);
 
+        logger.printMostRecentLog();
+
         assertEquals(outContent.toString().trim(), compsToString[2], "Should be " + compsToString[2] + " was " + outContent.toString());
-        outContent.reset();
+        //outContent.reset();
     }
 
     /**
