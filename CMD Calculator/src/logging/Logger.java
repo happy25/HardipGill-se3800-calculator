@@ -2,8 +2,7 @@ package logging;
 
 import computation.Computation;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 /**
  * Created by Patrick Zawadzki
@@ -13,7 +12,7 @@ import java.util.List;
 public class Logger {
 
     private static Logger logger = null;
-    private List<Computation> previousComputations;
+    private Stack<Computation> previousComputations;
     public static Logger getInstance(){
             if(logger == null){
                 logger = new Logger();
@@ -23,7 +22,7 @@ public class Logger {
     }
 
     private Logger(){
-        previousComputations = new ArrayList<>();
+        previousComputations = new Stack<>();
     }
 
     /**
@@ -66,7 +65,7 @@ public class Logger {
                 }
             }
         }else{
-            for(int i = (previousComputations.size() - numberLogs); i >= 0; i--){
+            for(int i = 0; i < numberLogs; i++){
                 System.out.println(previousComputations.get(i).computationString());
             }
         }
