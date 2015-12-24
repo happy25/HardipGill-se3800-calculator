@@ -2,8 +2,7 @@ package logging;
 
 import computation.Computation;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 /**
  * Created by Patrick Zawadzki
@@ -13,7 +12,7 @@ import java.util.List;
 public class Logger {
 
     private static Logger logger = null;
-    private List<Computation> previousComputations;
+    private Stack<Computation> previousComputations;
     public static Logger getInstance(){
             if(logger == null){
                 logger = new Logger();
@@ -23,7 +22,7 @@ public class Logger {
     }
 
     private Logger(){
-        previousComputations = new ArrayList<>();
+        previousComputations = new Stack<>();
     }
 
     /**
@@ -39,6 +38,45 @@ public class Logger {
      */
     public void printMostRecentLog(){
        this.printNLogs(1);//prints a single log.
+    }
+
+    /**
+     *
+     * Get total number of logs in stack.
+     * @return returns the current total number of logs.
+     */
+    public int getNumLogs(){
+        return previousComputations.size();
+    }
+
+    /**
+     * Get a computation from the history. 0 being the most recent computation.
+     * Will return null if the computation does not exist.
+     * @return The computation requested by the user.
+     */
+
+    public Computation getComputation(int index){
+        if(index < 0){
+            return null;
+        }else if(index >= previousComputations.size()){
+            return null;
+        }
+        return previousComputations.get(index);
+
+    }
+    /**
+     * Gets the most recent computation on the stack.
+     * @return returns the most computation object that is on the stack.
+     */
+    public Computation getPastComputation(){
+        return previousComputations.peek();
+    }
+
+    /**
+     * Clears the history of logs.
+     */
+    public void clearLogHistory(){
+        previousComputations = new Stack<>();
     }
 
     /**
@@ -66,7 +104,7 @@ public class Logger {
                 }
             }
         }else{
-            for(int i = (previousComputations.size() - numberLogs); i >= 0; i--){
+            for(int i = 0; i < numberLogs; i++){
                 System.out.println(previousComputations.get(i).computationString());
             }
         }
