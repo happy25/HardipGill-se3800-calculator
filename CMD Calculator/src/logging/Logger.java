@@ -50,6 +50,21 @@ public class Logger {
     }
 
     /**
+     * Get a computation from the history. 0 being the most recent computation.
+     * Will return null if the computation does not exist.
+     * @return The computation requested by the user.
+     */
+
+    public Computation getComputation(int index){
+        if(index < 0){
+            return null;
+        }else if(index >= previousComputations.size()){
+            return null;
+        }
+        return previousComputations.get(index);
+
+    }
+    /**
      * Gets the most recent computation on the stack.
      * @return returns the most computation object that is on the stack.
      */
