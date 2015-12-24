@@ -23,8 +23,8 @@ public class Computation {
      * The String result is used to store the result of the computation that was completed. For example, if the user
      * called "Add 1 2 3" then the answer "6" would be stored in this String.
      */
-    private String result;
-    public Computation(String name, String numberList, String result){
+    private double result;
+    public Computation(String name, String numberList, double result){
         this.name = name;
         this.numberList = numberList;
         this.result = result;
@@ -47,11 +47,11 @@ public class Computation {
         this.numberList = numberList;
     }
 
-    public String getResult() {
+    public double getResult() {
         return result;
     }
 
-    public void setResult(String result) {
+    public void setResult(double result) {
         this.result = result;
     }
 
@@ -65,8 +65,6 @@ public class Computation {
             throw new IllegalArgumentException("A computation NAME cannot be NULL");
         if(numberList == null)
             throw new IllegalArgumentException("A computation NUMBER LIST cannot be NULL");
-        if(result == null)
-            throw new IllegalArgumentException("A computation RESULT cannot be NULL");
         return name + " " + numberList + " Answer: " + result;
     }
 }
