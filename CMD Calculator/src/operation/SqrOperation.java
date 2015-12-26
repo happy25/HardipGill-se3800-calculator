@@ -18,11 +18,11 @@ public class SqrOperation implements Operation{
      * @return Computation object
      */
     @Override
-    public Computation calc(List<Integer> numbers) throws Exception {
-        float square;
+    public Computation calc(List<Double> numbers) throws Exception {
+        double square;
         if(numbers.size()==1){                              // if size of list is 1
             square = numbers.get(0)*numbers.get(0);             // multiply number by itself
-            return new Computation("SQR", Arrays.toString(numbers.toArray()),Float.toString(square));
+            return new Computation("SQR", Arrays.toString(numbers.toArray()),square);
         }
         else{
             throw new IllegalArgumentException("Number list has invalid number of numbers.  Can only have one number");

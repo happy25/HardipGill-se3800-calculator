@@ -10,5 +10,5 @@ import java.util.List;
  * This Operation interface will define the methods necessary for any kind of operation
  */
 public interface Operation {
-    public Computation calc(List<Integer> numbers) throws Exception;
+    public Computation calc(List<Double> numbers) throws Exception;
 }

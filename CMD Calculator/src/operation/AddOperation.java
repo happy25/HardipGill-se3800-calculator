@@ -18,14 +18,14 @@ public class AddOperation implements Operation {
      * @return Computation object
      */
     @Override
-    public Computation calc(List<Integer> numbers) {
-        float sum;
+    public Computation calc(List<Double> numbers) {
+        double sum;
         if(numbers.size()>0) {                  // if list is not empty
             sum = 0;
-            for (Integer num : numbers) {       // for every number in list
+            for (Double num : numbers) {       // for every number in list
                 sum += num;                         // add them together
             }
-            return new Computation("ADD", Arrays.toString(numbers.toArray()),Float.toString(sum)); // return a computation object
+            return new Computation("ADD", Arrays.toString(numbers.toArray()),sum); // return a computation object
         }
         else{
             throw new IllegalArgumentException("Number list must contain at least one number");

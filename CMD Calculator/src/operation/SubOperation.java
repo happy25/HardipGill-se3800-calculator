@@ -19,14 +19,14 @@ public class SubOperation implements Operation {
      * @return Computation object
      */
     @Override
-    public Computation calc(List<Integer> numbers) throws Exception {
-        float dif;
+    public Computation calc(List<Double> numbers) throws Exception {
+        double dif;
         if(numbers.size()>0){           // if list is not empty
             dif = numbers.remove(0);        // start with diff being first number in list
-            for(Integer num: numbers){          // for rest of numbers in list
+            for(Double num: numbers){          // for rest of numbers in list
                 dif-=num;                           // subtract number from difference
             }
-            return new Computation("ADD", Arrays.toString(numbers.toArray()),Float.toString(dif));
+            return new Computation("ADD", Arrays.toString(numbers.toArray()),dif);
         }
         else{
             throw new IllegalArgumentException("Number list must contain at least one number");
