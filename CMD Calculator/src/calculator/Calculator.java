@@ -46,6 +46,7 @@ public class Calculator {
      * Helper method that is just displays instructions
      */
     private void showInstructions(){
+        System.out.println("");
         System.out.println("Use command 'ADD' to add a list of numbers");
         System.out.println("Use command 'SUB' to subtract a list of numbers");
         System.out.println("Use command 'MULT' to multiply a list of numbers");
@@ -92,15 +93,16 @@ public class Calculator {
             case "SQR":
                 conductOperation(new SqrOperation(),inputArray);
             case "HIS":
-                //TODO: Display History
+                logger.printNLogs(logger.getNumLogs());
                 break;
             case "DEL":
-                //TODO: Delete history
+                logger.clearLogHistory();
                 break;
             case "EXIT":
                 cont = false;
                 break;
             default:
+                System.out.println("Command Not Recognized");
                 break;
         }
         return cont;
