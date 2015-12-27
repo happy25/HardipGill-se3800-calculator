@@ -23,11 +23,11 @@ public class SubOperation implements Operation {
         if(numbers != null) {
             double dif;
             if (numbers.size() > 0) {           // if list is not empty
-                dif = numbers.remove(0);        // start with diff being first number in list
-                for (Double num : numbers) {          // for rest of numbers in list
-                    dif -= num;                           // subtract number from difference
+                dif = numbers.get(0);        // start with diff being first number in list
+                for (int i = 1; i < numbers.size();i++) {          // for rest of numbers in list
+                    dif -= numbers.get(i);                           // subtract number from difference
                 }
-                return new Computation("ADD", Arrays.toString(numbers.toArray()), dif);
+                return new Computation("SUB", Arrays.toString(numbers.toArray()), dif);
             } else {
                 throw new IllegalArgumentException("Number list must contain at least one number");
             }

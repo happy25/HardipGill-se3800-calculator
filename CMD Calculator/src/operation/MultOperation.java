@@ -25,7 +25,7 @@ public class MultOperation implements Operation {
                 for (Double num : numbers) {              // for every number in list
                     product *= num;                         // multiply by number
                 }
-                return new Computation("ADD", Arrays.toString(numbers.toArray()), product);
+                return new Computation("MULT", Arrays.toString(numbers.toArray()), product);
             } else {
                 throw new IllegalArgumentException("Number list must contain at least one number");
             }

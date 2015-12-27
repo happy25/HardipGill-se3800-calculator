@@ -22,11 +22,11 @@ public class DivOperation implements Operation{
         if(numbers != null) {
             double quotient;
             if (numbers.size() > 0) {                   // if list is not empty
-                quotient = numbers.remove(0);           // start with quotient being the first number in list
-                for (Double num : numbers) {                  // for rest of numbers in list
-                    quotient /= num;                              // divide quotient by number
+                quotient = numbers.get(0);           // start with quotient being the first number in list
+                for (int i = 1; i<numbers.size();i++) {                  // for rest of numbers in list
+                    quotient /= numbers.get(i);                              // divide quotient by number
                 }
-                return new Computation("ADD", Arrays.toString(numbers.toArray()), quotient);
+                return new Computation("DIV", Arrays.toString(numbers.toArray()), quotient);
             } else {
                 throw new IllegalArgumentException("Number list must contain at least one number");
             }
