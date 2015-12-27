@@ -15,7 +15,8 @@ import java.util.Scanner;
  */
 public class Calculator {
 
-    Logger logger = null;
+    private Logger logger = null;
+    private static char HIS_REF_SYMBOL = '!';       // Declaring symbol to be used when referencing past computation results in history
 
     /**
      * Constructor method
@@ -45,6 +46,7 @@ public class Calculator {
      * Helper method that is just displays instructions
      */
     private void showInstructions(){
+        System.out.println("");
         System.out.println("Use command 'ADD' to add a list of numbers");
         System.out.println("Use command 'SUB' to subtract a list of numbers");
         System.out.println("Use command 'MULT' to multiply a list of numbers");
@@ -91,15 +93,16 @@ public class Calculator {
             case "SQR":
                 conductOperation(new SqrOperation(),inputArray);
             case "HIS":
-                //TODO: Display History
+                logger.printNLogs(logger.getNumLogs());
                 break;
             case "DEL":
-                //TODO: Delete history
+                logger.clearLogHistory();
                 break;
             case "EXIT":
                 cont = false;
                 break;
             default:
+                System.out.println("Command Not Recognized");
                 break;
         }
         return cont;
@@ -126,16 +129,16 @@ public class Calculator {
      * @param inputArray Array of string numbers
      * @return List of integers
      */
-    private List<Integer> cleanInputParameters(String[] inputArray){
-        List<Integer> intList = new LinkedList<Integer>();
+    private List<Double> cleanInputParameters(String[] inputArray){
+        List<Double> numList = new LinkedList<Double>();
         for(int i = 1; i< inputArray.length;i++){                   // for every element in array
             char firstChar = inputArray[i].charAt(0);
-            if(firstChar == '!'){                                   // if first character is a "!"
-                subHistoryReference(inputArray[i],intList);             // then initiate history subsitution
+            if(firstChar == HIS_REF_SYMBOL){                                   // if first character is a "!"
+                subHistoryReference(inputArray[i],numList);             // then initiate history subsitution
             }
             else{                                                   // else
                 try {
-                    intList.add(Integer.parseInt(inputArray[i]));           // add the integer equivalent of string
+                    numList.add(Double.parseDouble(inputArray[i]));           // add the integer equivalent of string
                 }
                 catch (NumberFormatException e){                            // if string is not an integer
                     System.out.println(inputArray[i]+" is not a valid integer.  Skipping...");  // print error message and skip it
@@ -143,30 +146,29 @@ public class Calculator {
             }
 
         }
-        return intList;  // return list of integers
+        return numList;  // return list of integers
     }
 
     /**
      * This helper method will use the logger to reference previous computations
      * and subsitute the value of the result into the integer list
-     * @param para reference string
-     * @param intList integer list to add value to
+     * @param hisRef history reference string
+     * @param numList integer list to add value to
      */
-    private void subHistoryReference(String para, List intList){
-        String prevCompIndexStr = para.substring(1, para.length() - 1);  // strip "!" from front of string
-        int prevCompIndex = 0;
+    private void subHistoryReference(String hisRef, List<Double> numList){
+        String prevCompIndexStr = hisRef.replace(""+HIS_REF_SYMBOL,"").trim();                  // remove History Reference Symbol
+        int prevCompIndex;
         try{
             prevCompIndex = Integer.parseInt(prevCompIndexStr);  // convert string value to integer
-            //TODO: make changes to logger class so that the following code will work.
-//                if(prevCompIndex>1 && prevCompIndex <= logger.getNumLogs()){  // logger should probably have a method that returns the number of logs that it currently has
-//                    intList.add(logger.getPastComputation().getResult());            // logger should probably have a method like getPastComputation that would return
-//                }
-//                else{
-//                    System.out.println(prevCompIndex+" is not a valid index.  Skipping...");
-//                }
+            if(prevCompIndex>=1 && prevCompIndex <= logger.getNumLogs()){  // if index is a valid index for the log items
+                numList.add(logger.getComputation(logger.getNumLogs() - prevCompIndex).getResult());            // add referenced result to number list
+            }
+            else{
+                System.out.println(prevCompIndex+" is not a valid index.  Skipping...");
+            }
         }
         catch (NumberFormatException e) {                                   // if not possible
-            System.out.println(prevCompIndex + " is not a valid integer");      // print error and skip
+            System.out.println(prevCompIndexStr + " is not a valid integer");      // print error and skip
         }
 
     }

@@ -18,14 +18,14 @@ public class DivOperation implements Operation{
      * @return Computation object
      */
     @Override
-    public Computation calc(List<Integer> numbers) throws Exception {
-        float quotient;
+    public Computation calc(List<Double> numbers) throws Exception {
+        double quotient;
         if(numbers.size()>0){                   // if list is not empty
             quotient = numbers.remove(0);           // start with quotient being the first number in list
-            for(Integer num: numbers){                  // for rest of numbers in list
+            for(Double num: numbers){                  // for rest of numbers in list
                 quotient/=num;                              // divide quotient by number
             }
-            return new Computation("ADD", Arrays.toString(numbers.toArray()),Float.toString(quotient));
+            return new Computation("ADD", Arrays.toString(numbers.toArray()),quotient);
         }
         else{
             throw new IllegalArgumentException("Number list must contain at least one number");

@@ -18,10 +18,10 @@ public class MultOperation implements Operation {
      * @return Computation object
      */
     @Override
-    public Computation calc(List<Integer> numbers) throws Exception {
+    public Computation calc(List<Double> numbers) throws Exception {
         float product = 1;
         if(numbers.size()>0){                   // if list is not empty
-            for(Integer num: numbers){              // for every number in list
+            for(Double num: numbers){              // for every number in list
                 product *= num;                         // multiply by number
             }
             return new Computation("ADD", Arrays.toString(numbers.toArray()),product);
