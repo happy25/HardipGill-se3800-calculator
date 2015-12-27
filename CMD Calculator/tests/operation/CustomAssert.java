@@ -13,6 +13,5 @@ public class CustomAssert extends Assert {
         assertEquals(result.getName(),expected.getName());
         assertEquals(result.getNumberList(),expected.getNumberList());
         assertEquals(result.computationString(), expected.computationString());
-
     }
 }

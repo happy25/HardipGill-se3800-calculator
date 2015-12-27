@@ -11,5 +11,19 @@
             <class name="operation.DivOperationTest" />
         </classes>
     </test>
-
+    <test name="MultOperation">
+        <classes>
+            <class name="operation.MultOperationTest" />
+        </classes>
+    </test>
+    <test name="SqrOperation">
+        <classes>
+            <class name="operation.SqrOperationTest" />
+        </classes>
+    </test>
+    <test name="SubOperation">
+        <classes>
+            <class name="operation.SubOperationTest" />
+        </classes>
+    </test>
 </suite>

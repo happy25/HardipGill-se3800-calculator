@@ -1,73 +1,72 @@
 package operation;
 
-
 import computation.Computation;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import static org.testng.Assert.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.testng.Assert.*;
+
 /**
  * Created by zawadzkip on 12/27/15.
  */
-public class DivOperationTest {
+public class MultOperationTest {
 
     Operation o;
     List<Double> numbers;
     CustomAssert customAssert;
     private final String EMPTY_LIST_EXCEPTION_MESSAGE = "Number list must contain at least one number";
     @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
-        o = new DivOperation();
+    public void setUp(){
+        o = new MultOperation();
         numbers = new ArrayList<>();
-        customAssert  = new CustomAssert();
+        customAssert = new CustomAssert();
     }
     @Test
-    public void testDividePositives(){
-        numbers.add(12.0);
-        numbers.add(2.0);
+    public void testMultiplyPositive(){
+        numbers.add(5.0);
+        numbers.add(6.0);
         try{
             Computation result = o.calc(numbers);
-            Computation expected = new Computation("DIV", Arrays.toString(numbers.toArray()),6.0);
+            Computation expected = new Computation("MULT", Arrays.toString(numbers.toArray()),30.0);
             customAssert.assertComputationIsEqual(expected,result);
         }catch (Exception e){
-            fail("Test Divide Positives should not have thrown an exception");
+            fail("Test Multiply Positive should have not thrown an exception");
         }
-    }
-    @Test
-    public void testDivideNegatives(){
-        numbers.add(-14.0);
-        numbers.add(-7.0);
-        try{
-            Computation result = o.calc(numbers);
-            Computation expected = new Computation("DIV", Arrays.toString(numbers.toArray()),2.0);
-            customAssert.assertComputationIsEqual(expected,result);
-        }catch (Exception e){
-            fail("Test Divide Negatives should not have thrown an exception");
 
+    }
+    @Test
+    public void testMultiplyNegative(){
+        numbers.add(-10.0);
+        numbers.add(-2.0);
+        try{
+            Computation result = o.calc(numbers);
+            Computation expected = new Computation("MULT", Arrays.toString(numbers.toArray()),20.0);
+            customAssert.assertComputationIsEqual(expected,result);
+        }catch (Exception e){
+            fail("Test Multiply Negatives should not have thrown an exception");
         }
     }
     @Test
-    public void testDivideBoth(){
-        numbers.add(-21.0);
-        numbers.add(3.0);
+    public void testMultiplyBoth(){
+        numbers.add(-5.0);
+        numbers.add(10.0);
         try{
             Computation result = o.calc(numbers);
-            Computation expected = new Computation("DIV", Arrays.toString(numbers.toArray()),-7.0);
+            Computation expected = new Computation("MULT",Arrays.toString(numbers.toArray()),-50.0);
             customAssert.assertComputationIsEqual(expected,result);
-        }catch (Exception e){
-            fail("Test Divide Both should not have thrown an exception");
+        }catch (Exception e) {
+            fail("Test Multiply Both should not have thrown an exception");
         }
     }
     @Test
     public void testEmptyList(){
         try{
             o.calc(numbers);
-            fail("Test Empty List should have thrown an exception");
+            fail("Exception should have been thrown.");
         }catch (Exception e){
             assertEquals(e.getMessage(),EMPTY_LIST_EXCEPTION_MESSAGE);
         }
@@ -78,10 +77,11 @@ public class DivOperationTest {
         numbers.add(1.0);
         try{
             Computation result = o.calc(numbers);
-            Computation expected = new Computation("DIV", Arrays.toString(numbers.toArray()),Double.MAX_VALUE);
+            Computation expected = new Computation("MULT",Arrays.toString(numbers.toArray()),Double.MAX_VALUE);
             customAssert.assertComputationIsEqual(expected,result);
         }catch (Exception e){
-            fail("Test Value Size should have thrown an exception.");
+            fail("Test Value Size should not have thrown an exception.");
         }
     }
+
 }
