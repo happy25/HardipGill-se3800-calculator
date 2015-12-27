@@ -9,7 +9,7 @@ import org.testng.Assert;
 public class CustomAssert extends Assert {
 
     public void assertComputationIsEqual(Computation expected, Computation result){
-        assertEquals(result.getResult(),expected.getResult(),0.1);
+        assertEquals(result.getResult(),expected.getResult(),1E-8);
         assertEquals(result.getName(),expected.getName());
         assertEquals(result.getNumberList(),expected.getNumberList());
         assertEquals(result.computationString(), expected.computationString());

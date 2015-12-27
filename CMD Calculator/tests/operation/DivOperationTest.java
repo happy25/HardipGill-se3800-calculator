@@ -19,6 +19,7 @@ public class DivOperationTest {
     Operation o;
     List<Double> numbers;
     CustomAssert customAssert;
+    private final String DIV_COMMAND = "DIV";
     private final String EMPTY_LIST_EXCEPTION_MESSAGE = "Number list must contain at least one number";
     @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception {
@@ -32,7 +33,7 @@ public class DivOperationTest {
         numbers.add(2.0);
         try{
             Computation result = o.calc(numbers);
-            Computation expected = new Computation("DIV", Arrays.toString(numbers.toArray()),6.0);
+            Computation expected = new Computation(DIV_COMMAND, Arrays.toString(numbers.toArray()),6.0);
             customAssert.assertComputationIsEqual(expected,result);
         }catch (Exception e){
             fail("Test Divide Positives should not have thrown an exception");
@@ -44,7 +45,7 @@ public class DivOperationTest {
         numbers.add(-7.0);
         try{
             Computation result = o.calc(numbers);
-            Computation expected = new Computation("DIV", Arrays.toString(numbers.toArray()),2.0);
+            Computation expected = new Computation(DIV_COMMAND, Arrays.toString(numbers.toArray()),2.0);
             customAssert.assertComputationIsEqual(expected,result);
         }catch (Exception e){
             fail("Test Divide Negatives should not have thrown an exception");
@@ -57,7 +58,7 @@ public class DivOperationTest {
         numbers.add(3.0);
         try{
             Computation result = o.calc(numbers);
-            Computation expected = new Computation("DIV", Arrays.toString(numbers.toArray()),-7.0);
+            Computation expected = new Computation(DIV_COMMAND, Arrays.toString(numbers.toArray()),-7.0);
             customAssert.assertComputationIsEqual(expected,result);
         }catch (Exception e){
             fail("Test Divide Both should not have thrown an exception");
@@ -78,7 +79,7 @@ public class DivOperationTest {
         numbers.add(1.0);
         try{
             Computation result = o.calc(numbers);
-            Computation expected = new Computation("DIV", Arrays.toString(numbers.toArray()),Double.MAX_VALUE);
+            Computation expected = new Computation(DIV_COMMAND, Arrays.toString(numbers.toArray()),Double.MAX_VALUE);
             customAssert.assertComputationIsEqual(expected,result);
         }catch (Exception e){
             fail("Test Value Size should have thrown an exception.");

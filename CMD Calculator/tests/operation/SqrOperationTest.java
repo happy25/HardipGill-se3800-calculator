@@ -19,10 +19,11 @@ public class SqrOperationTest {
     Operation o;
     List<Double> numbers;
     CustomAssert customAssert;
+    private final String SQR_COMMAND = "SQR";
     private final String EXCEPTION_MESSAGE = "Number list has invalid number of numbers.  Can only have one number";
     @BeforeMethod(alwaysRun = true)
     public void setUp(){
-        o = new MultOperation();
+        o = new SqrOperation();
         numbers = new ArrayList<>();
         customAssert = new CustomAssert();
     }
@@ -32,7 +33,7 @@ public class SqrOperationTest {
         numbers.add(5.0);
         try{
             Computation result = o.calc(numbers);
-            Computation expected = new Computation("SQR", Arrays.toString(numbers.toArray()), 25.0);
+            Computation expected = new Computation(SQR_COMMAND, Arrays.toString(numbers.toArray()), 25.0);
             customAssert.assertComputationIsEqual(expected,result);
         }catch (Exception e){
             fail("Test Positive Number should not have thrown an exception");
@@ -43,7 +44,7 @@ public class SqrOperationTest {
         numbers.add(-10.0);
         try{
             Computation result =o.calc(numbers);
-            Computation expected = new Computation("SQR", Arrays.toString(numbers.toArray()),100.0);
+            Computation expected = new Computation(SQR_COMMAND, Arrays.toString(numbers.toArray()),100.0);
             customAssert.assertComputationIsEqual(expected,result);
         }catch (Exception e){
             fail("Test Negative Numbers should not have thrown an exception");
@@ -69,4 +70,16 @@ public class SqrOperationTest {
             assertEquals(e.getMessage(), EXCEPTION_MESSAGE);
         }
     }
+    @Test
+    public void testValueSize(){
+        numbers.add(Math.sqrt(Double.MAX_VALUE));
+        try{
+            Computation result = o.calc(numbers);
+            Computation exepected = new Computation(SQR_COMMAND,Arrays.toString(numbers.toArray()),Double.MAX_VALUE);
+            customAssert.assertComputationIsEqual(exepected,result);
+        }catch(Exception e){
+            fail("Test Value Size should not have thrown an exception.");
+        }
+    }
+
 }

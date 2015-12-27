@@ -17,6 +17,7 @@ public class AddOperationTest {
     Operation o;
     List<Double> numbers;
     CustomAssert customAssert;
+    private final String ADD_COMMAND = "ADD";
     private final String EMPTY_LIST_EXCEPTION_MESSAGE = "Number list must contain at least one number";
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
@@ -30,7 +31,7 @@ public class AddOperationTest {
         numbers.add(2.0);
         try{
             Computation c = o.calc(numbers);
-            Computation expected = new Computation("ADD",Arrays.toString(numbers.toArray()),3.0);
+            Computation expected = new Computation(ADD_COMMAND,Arrays.toString(numbers.toArray()),3.0);
             customAssert.assertComputationIsEqual(expected,c);
         }catch (Exception e){
             fail("Add Positives should not have thrown an exception. " + e.getMessage());
@@ -43,7 +44,7 @@ public class AddOperationTest {
         numbers.add(-2.0);
         try{
             Computation c = o.calc(numbers);
-            Computation expected = new Computation("ADD", Arrays.toString(numbers.toArray()),-3.0);
+            Computation expected = new Computation(ADD_COMMAND, Arrays.toString(numbers.toArray()),-3.0);
             customAssert.assertComputationIsEqual(expected,c);
         }catch (Exception e){
             fail("Add negatives should not have thrown an exception. " + e.getMessage());
@@ -55,7 +56,7 @@ public class AddOperationTest {
         numbers.add(2.0);
         try{
             Computation result = o.calc(numbers);
-            Computation expected = new Computation("ADD", Arrays.toString(numbers.toArray()),1.0);
+            Computation expected = new Computation(ADD_COMMAND, Arrays.toString(numbers.toArray()),1.0);
             customAssert.assertComputationIsEqual(expected,result);
         }catch (Exception e){
             fail("Add both should not have thrown an exception. " + e.getMessage());
@@ -70,6 +71,19 @@ public class AddOperationTest {
         }catch (Exception e)
         {
             assertEquals(e.getMessage(),EMPTY_LIST_EXCEPTION_MESSAGE);
+        }
+    }
+    
+    @Test
+    public void testValueSize(){
+        numbers.add(Double.MAX_VALUE);
+        numbers.add(0.0);
+        try{
+            Computation result = o.calc(numbers);
+            Computation expected = new Computation(ADD_COMMAND, Arrays.toString(numbers.toArray()),Double.MAX_VALUE);
+            customAssert.assertComputationIsEqual(expected,result);
+        }catch(Exception e){
+            fail("Test Value Size should not have thrown an exception");
         }
     }
 
