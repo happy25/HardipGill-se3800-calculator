@@ -25,6 +25,9 @@ public class Computation {
      */
     private double result;
     public Computation(String name, String numberList, double result){
+        if(name == null || numberList == null){
+            throw new IllegalArgumentException("Computation parameters cannot be null");
+        }
         this.name = name;
         this.numberList = numberList;
         this.result = result;
