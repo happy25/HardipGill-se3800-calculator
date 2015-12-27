@@ -1,0 +1,15 @@
+<suite name="TestAllOperations">
+
+    <test name="AddOperation">
+        <classes>
+            <class name="operation.AddOperationTest" />
+        </classes>
+    </test>
+
+    <test name="DivOperation">
+        <classes>
+            <class name="operation.DivOperationTest" />
+        </classes>
+    </test>
+
+</suite>
