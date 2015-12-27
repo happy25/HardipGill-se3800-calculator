@@ -19,17 +19,20 @@ public class AddOperation implements Operation {
      */
     @Override
     public Computation calc(List<Double> numbers) {
-        double sum;
-        if(numbers.size()>0) {                  // if list is not empty
-            sum = 0;
-            for (Double num : numbers) {       // for every number in list
-                sum += num;                         // add them together
+        if(numbers != null) {
+            double sum;
+            if (numbers.size() > 0) {                  // if list is not empty
+                sum = 0;
+                for (Double num : numbers) {       // for every number in list
+                    sum += num;                         // add them together
+                }
+                return new Computation("ADD", Arrays.toString(numbers.toArray()), sum); // return a computation object
+            } else {
+                throw new IllegalArgumentException("Number list must contain at least one number");
             }
-            return new Computation("ADD", Arrays.toString(numbers.toArray()),sum); // return a computation object
         }
         else{
-            throw new IllegalArgumentException("Number list must contain at least one number");
+            throw new IllegalArgumentException("Number list cannot be NULL");
         }
-
     }
 }

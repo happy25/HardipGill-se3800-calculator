@@ -19,15 +19,19 @@ public class MultOperation implements Operation {
      */
     @Override
     public Computation calc(List<Double> numbers) throws Exception {
-        float product = 1;
-        if(numbers.size()>0){                   // if list is not empty
-            for(Double num: numbers){              // for every number in list
-                product *= num;                         // multiply by number
+        if(numbers != null) {
+            float product = 1;
+            if (numbers.size() > 0) {                   // if list is not empty
+                for (Double num : numbers) {              // for every number in list
+                    product *= num;                         // multiply by number
+                }
+                return new Computation("ADD", Arrays.toString(numbers.toArray()), product);
+            } else {
+                throw new IllegalArgumentException("Number list must contain at least one number");
             }
-            return new Computation("ADD", Arrays.toString(numbers.toArray()),product);
         }
         else{
-            throw new IllegalArgumentException("Number list must contain at least one number");
+            throw new IllegalArgumentException("Number list cannot be NULL");
         }
     }
 }

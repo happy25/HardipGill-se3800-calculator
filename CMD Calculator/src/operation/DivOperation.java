@@ -19,16 +19,20 @@ public class DivOperation implements Operation{
      */
     @Override
     public Computation calc(List<Double> numbers) throws Exception {
-        double quotient;
-        if(numbers.size()>0){                   // if list is not empty
-            quotient = numbers.remove(0);           // start with quotient being the first number in list
-            for(Double num: numbers){                  // for rest of numbers in list
-                quotient/=num;                              // divide quotient by number
+        if(numbers != null) {
+            double quotient;
+            if (numbers.size() > 0) {                   // if list is not empty
+                quotient = numbers.remove(0);           // start with quotient being the first number in list
+                for (Double num : numbers) {                  // for rest of numbers in list
+                    quotient /= num;                              // divide quotient by number
+                }
+                return new Computation("ADD", Arrays.toString(numbers.toArray()), quotient);
+            } else {
+                throw new IllegalArgumentException("Number list must contain at least one number");
             }
-            return new Computation("ADD", Arrays.toString(numbers.toArray()),quotient);
         }
         else{
-            throw new IllegalArgumentException("Number list must contain at least one number");
+            throw new IllegalArgumentException("Number list cannot be NULL");
         }
     }
 }

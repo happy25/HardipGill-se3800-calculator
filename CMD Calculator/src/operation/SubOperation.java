@@ -20,17 +20,20 @@ public class SubOperation implements Operation {
      */
     @Override
     public Computation calc(List<Double> numbers) throws Exception {
-        double dif;
-        if(numbers.size()>0){           // if list is not empty
-            dif = numbers.remove(0);        // start with diff being first number in list
-            for(Double num: numbers){          // for rest of numbers in list
-                dif-=num;                           // subtract number from difference
+        if(numbers != null) {
+            double dif;
+            if (numbers.size() > 0) {           // if list is not empty
+                dif = numbers.remove(0);        // start with diff being first number in list
+                for (Double num : numbers) {          // for rest of numbers in list
+                    dif -= num;                           // subtract number from difference
+                }
+                return new Computation("ADD", Arrays.toString(numbers.toArray()), dif);
+            } else {
+                throw new IllegalArgumentException("Number list must contain at least one number");
             }
-            return new Computation("ADD", Arrays.toString(numbers.toArray()),dif);
         }
         else{
-            throw new IllegalArgumentException("Number list must contain at least one number");
+            throw new IllegalArgumentException("Number list cannot be NULL");
         }
-
     }
 }
