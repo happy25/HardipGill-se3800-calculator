@@ -65,14 +65,6 @@ public class Logger {
 
     }
     /**
-     * Gets the most recent computation on the stack.
-     * @return returns the most computation object that is on the stack.
-     */
-    public Computation getPastComputation(){
-        return previousComputations.peek();
-    }
-
-    /**
      * Clears the history of logs.
      */
     public void clearLogHistory(){
