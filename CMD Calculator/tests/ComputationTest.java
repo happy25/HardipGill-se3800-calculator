@@ -17,8 +17,7 @@ public class ComputationTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();  // this object will hold the text that is printed to console
 
-    private static final String NAME_NULL_ERROR_MSG = "A computation NAME cannot be NULL";
-    private static final String NUMLIST_NULL_ERROR_MSG = "A computation NUMBER LIST cannot be NULL";
+    private static final String NULL_PARAM_ERROR_MSG = "Computation parameters cannot be null";
 
     public ComputationTest(){}
 
@@ -29,10 +28,10 @@ public class ComputationTest {
     @DataProvider(name = "testConstructor")
     private Object[][] testConstructorData(){
         return new Object[][]{
-                {null,  null,       0,   true,      NAME_NULL_ERROR_MSG},
-                {"ADD", null,       0,   true,      NUMLIST_NULL_ERROR_MSG},
-                {null,  "[1,2,3]",  0,   true,      NAME_NULL_ERROR_MSG},
-                {null,  null,       1,   true,      NAME_NULL_ERROR_MSG},
+                {null,  null,       0,   true,      NULL_PARAM_ERROR_MSG},
+                {"ADD", null,       0,   true,      NULL_PARAM_ERROR_MSG},
+                {null,  "[1,2,3]",  0,   true,      NULL_PARAM_ERROR_MSG},
+                {null,  null,       1,   true,      NULL_PARAM_ERROR_MSG},
                 {"ADD",  "[1,2,3]",  1,   false,   ""},
         };
     }
