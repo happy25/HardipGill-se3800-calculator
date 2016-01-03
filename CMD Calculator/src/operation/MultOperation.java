@@ -20,7 +20,7 @@ public class MultOperation implements Operation {
     @Override
     public Computation calc(List<Double> numbers) throws Exception {
         if(numbers != null) {
-            float product = 1;
+            double product = 1;
             if (numbers.size() > 0) {                   // if list is not empty
                 for (Double num : numbers) {              // for every number in list
                     product *= num;                         // multiply by number
