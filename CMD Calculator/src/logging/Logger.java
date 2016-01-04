@@ -55,7 +55,6 @@ public class Logger {
      * @return The computation requested by the user.
      */
 
-    //FIXME THIS IS INTENTIONALLY BROKEN
     public Computation getComputation(int index){
         if(index < 0){
             return null;
