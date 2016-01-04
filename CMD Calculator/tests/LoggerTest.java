@@ -198,11 +198,11 @@ public class LoggerTest {
         return new Object [][]{
                 {1,new Computation[0],PRINT_N_LOGS_ERROR_NO_LOGS},
                 {1,computations(),computationsToString()[4]},               // get last computation
-                {2,computations(),computationsToString()[3]+"\n"+computationsToString()[4]}, // get last two computations
-                {3,computations(),computationsToString()[2]+"\n"+computationsToString()[3]+"\n"+computationsToString()[4]}, // get last three computations
-                {4,computations(),computationsToString()[1]+"\n"+computationsToString()[2]+"\n"+computationsToString()[3]+"\n"+computationsToString()[4]}, // get last four computations
-                {5,computations(),computationsToString()[0]+"\n"+computationsToString()[1]+"\n"+computationsToString()[2]+"\n"+computationsToString()[3]+"\n"+computationsToString()[4]}, // get last five computations
-                {6,computations(),computationsToString()[0]+"\n"+computationsToString()[1]+"\n"+computationsToString()[2]+"\n"+computationsToString()[3]+"\n"+computationsToString()[4]}, // get last six computations
+                {2,computations(),computationsToString()[3]+computationsToString()[4]}, // get last two computations
+                {3,computations(),computationsToString()[2]+computationsToString()[3]+computationsToString()[4]}, // get last three computations
+                {4,computations(),computationsToString()[1]+computationsToString()[2]+computationsToString()[3]+computationsToString()[4]}, // get last four computations
+                {5,computations(),computationsToString()[0]+computationsToString()[1]+computationsToString()[2]+computationsToString()[3]+computationsToString()[4]}, // get last five computations
+                {6,computations(),computationsToString()[0]+computationsToString()[1]+computationsToString()[2]+computationsToString()[3]+computationsToString()[4]}, // get last six computations
                 {0,computations(),PRINT_N_LOGS_ERROR_INVALID_INDEX},
         };
     }
@@ -226,8 +226,8 @@ public class LoggerTest {
         logger.printNLogs(numLogs);  // print logs based on numLogs
 
         assertEquals(
-                outContent.toString().trim(),
-                expectedResult,
+                outContent.toString().trim().replace("\n", "").replace("\r", ""),
+                expectedResult.trim(),
                 "Should be " +
                         expectedResult +
                 " was " + outContent.toString()
