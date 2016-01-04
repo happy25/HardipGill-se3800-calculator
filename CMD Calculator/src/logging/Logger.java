@@ -2,7 +2,7 @@ package logging;
 
 import computation.Computation;
 
-import java.util.Stack;
+import java.util.*;
 
 /**
  * Created by Patrick Zawadzki
@@ -12,7 +12,7 @@ import java.util.Stack;
 public class Logger {
 
     private static Logger logger = null;
-    private Stack<Computation> previousComputations;
+    private List<Computation> previousComputations;
     public static Logger getInstance(){
             if(logger == null){
                 logger = new Logger();
@@ -22,7 +22,7 @@ public class Logger {
     }
 
     private Logger(){
-        previousComputations = new Stack<>();
+        previousComputations = new ArrayList<>();
     }
 
     /**
@@ -55,6 +55,7 @@ public class Logger {
      * @return The computation requested by the user.
      */
 
+    //FIXME THIS IS INTENTIONALLY BROKEN
     public Computation getComputation(int index){
         if(index < 0){
             return null;
@@ -68,7 +69,7 @@ public class Logger {
      * Clears the history of logs.
      */
     public void clearLogHistory(){
-        previousComputations = new Stack<>();
+        previousComputations = new ArrayList<>();
     }
 
     /**
@@ -87,16 +88,13 @@ public class Logger {
         }
         if(numberLogs < 1){
             System.out.println("Unable to print log: Please request at least one log");
-        }else if(numberLogs >= previousComputations.size()-1){
-            for(Computation c : previousComputations){
-                try{
-                    System.out.println(c.computationString());
-                }catch(IllegalArgumentException e){
-                    System.out.println("Unable to print log, " + e.getMessage());
-                }
+        }else if(numberLogs >= previousComputations.size()){
+            for (Computation c: previousComputations) {
+                System.out.println(c.computationString());
             }
         }else{
-            for(int i = 0; i < numberLogs; i++){
+            int startingLocation = previousComputations.size() - numberLogs;
+            for(int i = startingLocation; i < previousComputations.size(); i++){
                 System.out.println(previousComputations.get(i).computationString());
             }
         }
