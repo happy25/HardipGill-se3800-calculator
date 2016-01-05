@@ -38,25 +38,25 @@ public class Computation {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+//    public void setName(String name) {
+//        this.name = name;
+//    }
 
     public String getNumberList() {
         return numberList;
     }
 
-    public void setNumberList(String numberList) {
-        this.numberList = numberList;
-    }
+//    public void setNumberList(String numberList) {
+//        this.numberList = numberList;
+//    }
 
     public double getResult() {
         return result;
     }
 
-    public void setResult(double result) {
-        this.result = result;
-    }
+//    public void setResult(double result) {
+//        this.result = result;
+//    }
 
     /**
      * This method is used to easily print the results of this Computation object for quick logging response.
@@ -64,10 +64,10 @@ public class Computation {
      * @throws IllegalArgumentException When one of the possible Strings stored in a computation is null
      */
     public String computationString() throws IllegalArgumentException{
-        if(name == null)
-            throw new IllegalArgumentException("A computation NAME cannot be NULL");
-        if(numberList == null)
-            throw new IllegalArgumentException("A computation NUMBER LIST cannot be NULL");
+//        if(name == null)
+//            throw new IllegalArgumentException("A computation NAME cannot be NULL");
+//        if(numberList == null)
+//            throw new IllegalArgumentException("A computation NUMBER LIST cannot be NULL");
         return name + " " + numberList + " Answer: " + result;
     }
 }
