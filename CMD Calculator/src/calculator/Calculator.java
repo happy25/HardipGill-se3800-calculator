@@ -4,6 +4,7 @@ import computation.Computation;
 import logging.Logger;
 import operation.*;
 
+import java.io.ByteArrayInputStream;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -24,56 +25,14 @@ public class Calculator {
      * Initiates calculator functionality
      */
     public Calculator(){
-        System.out.println("Welcome to Hardip's and Patrick's Calculator");
-        logger = Logger.getInstance();  // get logger instance
-        boolean cont = true;
-        while(cont){
-            cont = presentCalculator();     // continue to present calculator until indicated otherwise
-        }
-        System.out.println("Goodbye!");
+       logger = Logger.getInstance();
     }
-
-    /**
-     * This helper method shows instructions and executes commands based on input.
-     * @return boolean on whether to continue or exit
-     */
-    private boolean presentCalculator(){
-        showInstructions();
-        return executeCommand(getInput());
-    }
-
-    /**
-     * Helper method that is just displays instructions
-     */
-    private void showInstructions(){
-        System.out.println("");
-        System.out.println("Use command 'ADD' to add a list of numbers");
-        System.out.println("Use command 'SUB' to subtract a list of numbers");
-        System.out.println("Use command 'MULT' to multiply a list of numbers");
-        System.out.println("Use command 'DIV' to divide a list of numbers");
-        System.out.println("Use command 'SQR' to square a list of numbers");
-        System.out.println("Use command 'HIS' to view history");
-        System.out.println("Use command 'DEL' to delete history");
-        System.out.println("");
-        System.out.println("Use placeholder '!#' to reference a previous result (# being the result number in history");
-
-    }
-
-    /**
-     * Helper method that allows user to enter input
-     * @return input
-     */
-    private String getInput(){
-        Scanner scanner = new Scanner(System.in);
-        return (scanner.nextLine());
-    }
-
     /**
      * The helper method is used to determine which commands to execute based on user input
      * @param input user input
      * @return whether to continue or exit
      */
-    private boolean executeCommand(String input){
+    public boolean executeCommand(String input){
         boolean cont = true;
         String[] inputArray = input.trim().split(" ");      // split input string into array by a space delimeter
         String typeOfCommand = inputArray[0];               // the type of command will be the first element of input array
