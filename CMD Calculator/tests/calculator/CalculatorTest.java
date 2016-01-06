@@ -1,9 +1,6 @@
 package calculator;
 
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -15,7 +12,7 @@ import static org.testng.Assert.*;
  */
 public class CalculatorTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();  // this object will hold the text that is printed to console
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();  // this object will hold the text that is printed to console
     private final String INSTRUCTIONS_TEXT = "Welcome to Hardip's and Patrick's Calculator\n" +
             "\n" +
             "Use command 'ADD' to add a list of numbers\n" +
@@ -28,15 +25,15 @@ public class CalculatorTest {
             "\n" +
             "Use placeholder '!#' to reference a previous result (# being the result number in history\n";
     private Calculator calculator;
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() throws Exception{
         System.setOut(new PrintStream(outContent));
         calculator = new Calculator();
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void tearDown() throws Exception{
-        outContent.reset();
+        outContent = new ByteArrayOutputStream();
         System.setOut(null);
         calculator = null;
     }
@@ -104,9 +101,43 @@ public class CalculatorTest {
        calculator.executeCommand(sub);
        String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
        assertEquals(output,result);
-
-
    }
+
+    @Test
+    public void testBadCommand(){
+        calculator.executeCommand("NOTCOMMAND");
+        String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
+        assertEquals(output,"Command Not Recognized");
+    }
+
+    @Test
+    public void testExit(){
+        calculator.executeCommand("EXIT");
+        String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
+        assertEquals(output,"");
+    }
+
+    @Test
+    public void testNonInteger(){
+        calculator.executeCommand("SUB A 2");
+        String expected = "A is not a valid integer.  Skipping...\r\nSUB [2.0] Answer: 2.0";
+        String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
+        assertEquals(output,expected);
+    }
+
+    @Test
+    public void testNonIntegerSubstitution(){
+        calculator.executeCommand("ADD 1 2");
+        outContent.reset();
+        calculator.executeCommand("SUB !A 2");
+        String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
+        String expected = "A is not a valid integer\r\nSUB [2.0] Answer: 2.0";
+        assertEquals(output,expected);
+    }
+
+
+
+
 
 
 
