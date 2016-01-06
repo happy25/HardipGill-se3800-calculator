@@ -97,8 +97,8 @@ public class CalculatorTest {
     @Test
    public void testSubstitutionOperations(){
        String add = "ADD 1 2 3";
-       String sub = "SUB !0 2.0";
-       String result = "SUB [6.0, 2.0] Answer: 4.0\n";
+       String sub = "SUB !1 2.0";
+       String result = "SUB [6.0, 2.0] Answer: 4.0";
        calculator.executeCommand(add);
        outContent.reset();
        calculator.executeCommand(sub);
