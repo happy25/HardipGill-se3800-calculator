@@ -1,67 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite hostname="MSOE-CND52919J1" name="calculator.CalculatorTest" tests="68" failures="1" timestamp="6 Jan 2016 03:58:23 GMT" time="0.05" errors="0">
-  <testcase name="testBadCommand" time="0.003" classname="calculator.CalculatorTest"/>
-  <testcase name="testExit" time="0.0" classname="calculator.CalculatorTest"/>
-  <testcase name="testNonInteger" time="0.002" classname="calculator.CalculatorTest"/>
-  <testcase name="testNonIntegerSubstitution" time="0.001" classname="calculator.CalculatorTest"/>
-  <testcase name="testStandardOperations" time="0.0" classname="calculator.CalculatorTest"/>
+<testsuite hostname="Pat-Z-MBP.nebula.msoe.edu" name="calculator.CalculatorTest" tests="73" failures="0" timestamp="6 Jan 2016 21:26:11 GMT" time="0.07" errors="0">
+  <testcase name="testStandardOperations" time="0.004" classname="calculator.CalculatorTest"/>
+  <testcase name="testStandardOperations" time="0.001" classname="calculator.CalculatorTest"/>
+  <testcase name="testStandardOperations" time="0.001" classname="calculator.CalculatorTest"/>
   <testcase name="testStandardOperations" time="0.001" classname="calculator.CalculatorTest"/>
   <testcase name="testStandardOperations" time="0.001" classname="calculator.CalculatorTest"/>
   <testcase name="testStandardOperations" time="0.0" classname="calculator.CalculatorTest"/>
   <testcase name="testStandardOperations" time="0.0" classname="calculator.CalculatorTest"/>
-  <testcase name="testStandardOperations" time="0.001" classname="calculator.CalculatorTest">
-    <failure type="java.lang.AssertionError" message="expected:&amp;lt;ADD [1.0, 2.0, 3.0] Answer: 6.0
-SUB [3.0, 2.0, 1.0] Answer: 0.0
-MULT [3.0, 2.0, 2.0] Answer: 12.0
-DIV [6.0, 2.0, 3.0] Answer: 1.0
-SQR [4.0] Answer: 16.0&amp;gt; but was:&amp;lt;SUB [2.0] Answer: 2.0
-ADD [1.0, 2.0] Answer: 3.0
-SUB [2.0] Answer: 2.0
-ADD [1.0, 2.0, 3.0] Answer: 6.0
-SUB [3.0, 2.0, 1.0] Answer: 0.0
-MULT [3.0, 2.0, 2.0] Answer: 12.0
-DIV [6.0, 2.0, 3.0] Answer: 1.0
-SQR [4.0] Answer: 16.0&amp;gt;">
-      <![CDATA[java.lang.AssertionError: expected:<ADD [1.0, 2.0, 3.0] Answer: 6.0
-SUB [3.0, 2.0, 1.0] Answer: 0.0
-MULT [3.0, 2.0, 2.0] Answer: 12.0
-DIV [6.0, 2.0, 3.0] Answer: 1.0
-SQR [4.0] Answer: 16.0> but was:<SUB [2.0] Answer: 2.0
-ADD [1.0, 2.0] Answer: 3.0
-SUB [2.0] Answer: 2.0
-ADD [1.0, 2.0, 3.0] Answer: 6.0
-SUB [3.0, 2.0, 1.0] Answer: 0.0
-MULT [3.0, 2.0, 2.0] Answer: 12.0
-DIV [6.0, 2.0, 3.0] Answer: 1.0
-SQR [4.0] Answer: 16.0>
-	at calculator.CalculatorTest.testStandardOperations(CalculatorTest.java:93)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:159)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:99)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-... Removed 31 stack frames]]>
-    </failure>
-  </testcase>
-  <testcase name="testSubstitutionOperations" time="0.001" classname="calculator.CalculatorTest"/>
+  <testcase name="testStandardOperations" time="0.0" classname="calculator.CalculatorTest"/>
+  <testcase name="testInput" time="0.01" classname="calculator.MenuTest"/>
   <testcase name="testComputationString" time="0.0" classname="computation.ComputationTest"/>
-  <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testConstructor" time="0.001" classname="computation.ComputationTest"/>
   <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
-  <testcase name="testGetName" time="0.0" classname="computation.ComputationTest"/>
+  <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
+  <testcase name="testGetName" time="0.001" classname="computation.ComputationTest"/>
   <testcase name="testGetNumberList" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testGetResult" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testClearLogHistory" time="0.0" classname="logger.LoggerTest"/>
+  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
+  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
+  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testGetComputation" time="0.001" classname="logger.LoggerTest"/>
-  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
@@ -70,26 +31,26 @@ SQR [4.0] Answer: 16.0>
   <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testGetInstance" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testLog" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testPrintMostRecentLog" time="0.001" classname="logger.LoggerTest"/>
+  <testcase name="testPrintMostRecentLog" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.001" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testPrintNLogs" time="0.001" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testAddBoth" time="0.0" classname="operation.AddOperationTest"/>
+  <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
+  <testcase name="testAddBoth" time="0.001" classname="operation.AddOperationTest"/>
   <testcase name="testAddNegatives" time="0.0" classname="operation.AddOperationTest"/>
   <testcase name="testAddPositives" time="0.0" classname="operation.AddOperationTest"/>
   <testcase name="testEmptyNumberList" time="0.0" classname="operation.AddOperationTest"/>
   <testcase name="testNullList" time="0.0" classname="operation.AddOperationTest"/>
   <testcase name="testValueSize" time="0.0" classname="operation.AddOperationTest"/>
-  <testcase name="testDivideBoth" time="0.001" classname="operation.DivOperationTest"/>
+  <testcase name="testDivideBoth" time="0.0" classname="operation.DivOperationTest"/>
   <testcase name="testDivideNegatives" time="0.0" classname="operation.DivOperationTest"/>
   <testcase name="testDividePositives" time="0.0" classname="operation.DivOperationTest"/>
-  <testcase name="testEmptyList" time="0.0" classname="operation.DivOperationTest"/>
-  <testcase name="testValueSize" time="0.001" classname="operation.DivOperationTest"/>
+  <testcase name="testEmptyList" time="0.001" classname="operation.DivOperationTest"/>
+  <testcase name="testValueSize" time="0.0" classname="operation.DivOperationTest"/>
   <testcase name="testEmptyList" time="0.0" classname="operation.MultOperationTest"/>
   <testcase name="testMultiplyBoth" time="0.0" classname="operation.MultOperationTest"/>
   <testcase name="testMultiplyNegative" time="0.0" classname="operation.MultOperationTest"/>
@@ -100,9 +61,16 @@ SQR [4.0] Answer: 16.0>
   <testcase name="testNegativeNumbers" time="0.0" classname="operation.SqrOperationTest"/>
   <testcase name="testPositiveNumbers" time="0.0" classname="operation.SqrOperationTest"/>
   <testcase name="testValueSize" time="0.0" classname="operation.SqrOperationTest"/>
-  <testcase name="testBoth" time="0.0" classname="operation.SubOperationTest"/>
+  <testcase name="testBoth" time="0.001" classname="operation.SubOperationTest"/>
   <testcase name="testEmptyList" time="0.0" classname="operation.SubOperationTest"/>
-  <testcase name="testNegativeNumbers" time="0.001" classname="operation.SubOperationTest"/>
+  <testcase name="testNegativeNumbers" time="0.0" classname="operation.SubOperationTest"/>
   <testcase name="testPositiveNumbers" time="0.0" classname="operation.SubOperationTest"/>
-  <testcase name="testValueSize" time="0.0" classname="operation.SubOperationTest"/>
+  <testcase name="testValueSize" time="0.001" classname="operation.SubOperationTest"/>
+  <testcase name="testBadCommand" time="0.0" classname="calculator.CalculatorTest"/>
+  <testcase name="testExit" time="0.0" classname="calculator.CalculatorTest"/>
+  <testcase name="testInvalidIntegerSubtitution" time="0.0" classname="calculator.CalculatorTest"/>
+  <testcase name="testLargeIntegerSubstitution" time="0.001" classname="calculator.CalculatorTest"/>
+  <testcase name="testNonInteger" time="0.001" classname="calculator.CalculatorTest"/>
+  <testcase name="testNonIntegerSubstitution" time="0.001" classname="calculator.CalculatorTest"/>
+  <testcase name="testSubstitutionOperations" time="0.001" classname="calculator.CalculatorTest"/>
 </testsuite>
