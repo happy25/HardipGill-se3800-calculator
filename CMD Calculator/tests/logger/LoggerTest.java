@@ -1,3 +1,5 @@
+package logger;
+
 import computation.Computation;
 import logging.Logger;
 import org.testng.annotations.AfterMethod;
