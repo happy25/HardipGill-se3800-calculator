@@ -94,13 +94,17 @@ public class CalculatorTest {
         String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();//remove the instructions text.
         assertEquals(commandResponses[index].trim(), output);
     }
-   public void testSubstituionOperations(){
+    @Test
+   public void testSubstitutionOperations(){
        String add = "ADD 1 2 3";
        String sub = "SUB !0 2.0";
-       String result = "SUB [6.0, 2.0] Answer: 4.0";
+       String result = "SUB [6.0, 2.0] Answer: 4.0\n";
        calculator.executeCommand(add);
-       calculator.executeCommand(sub);
        outContent.reset();
+       calculator.executeCommand(sub);
+       String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
+       assertEquals(output,result);
+
 
    }
 
