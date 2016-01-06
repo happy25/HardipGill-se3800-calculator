@@ -26,6 +26,7 @@ public class Calculator {
      */
     public Calculator(){
        logger = Logger.getInstance();
+        
     }
     /**
      * The helper method is used to determine which commands to execute based on user input
