@@ -106,7 +106,7 @@ public class CalculatorTest {
     {
         calculator.executeCommand(commands[index]);
         String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();//remove the instructions text.
-        assertEquals(output,commandResponses[index].trim());
+        assertEquals(output.trim().replace("\n", "").replace("\r", ""),commandResponses[index].trim().trim().replace("\n", "").replace("\r", ""));
     }
 
     /**
@@ -149,9 +149,9 @@ public class CalculatorTest {
     @Test(priority = 1)
     public void testNonInteger(){
         calculator.executeCommand("SUB A 2");
-        String expected = "A is not a valid integer.  Skipping...\nSUB [2.0] Answer: 2.0";
+        String expected = "A is not a valid integer.  Skipping...SUB [2.0] Answer: 2.0";
         String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
-        assertEquals(output,expected);
+        assertEquals(output.trim().replace("\n", "").replace("\r", ""),expected);
     }
 
     /**
@@ -164,8 +164,8 @@ public class CalculatorTest {
         outContent.reset();
         calculator.executeCommand("SUB !A 2");
         String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
-        String expected = "A is not a valid integer\nSUB [2.0] Answer: 2.0";
-        assertEquals(output,expected);
+        String expected = "A is not a valid integerSUB [2.0] Answer: 2.0";
+        assertEquals(output.trim().replace("\n", "").replace("\r", ""),expected);
     }
 
     /**
@@ -178,9 +178,9 @@ public class CalculatorTest {
         outContent.reset();
         calculator.executeCommand("SUB !-1 2");
         String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
-        String expected = "-1 is not a valid index.  Skipping...\n" +
+        String expected = "-1 is not a valid index.  Skipping..." +
                 "SUB [2.0] Answer: 2.0";
-        assertEquals(output,expected);
+        assertEquals(output.trim().replace("\n", "").replace("\r", ""),expected);
     }
 
     /**
@@ -191,9 +191,9 @@ public class CalculatorTest {
     public void testLargeIntegerSubstitution(){
         calculator.executeCommand("SUB !100000000 2");
         String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();
-        String expected = "100000000 is not a valid index.  Skipping...\n" +
+        String expected = "100000000 is not a valid index.  Skipping..." +
                 "SUB [2.0] Answer: 2.0";
-        assertEquals(output,expected);
+        assertEquals(output.trim().replace("\n", "").replace("\r", ""),expected);
     }
 
 
