@@ -1,13 +1,9 @@
 package computation;
 
-import computation.Computation;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.IllegalFormatException;
 
 import static org.testng.Assert.*;

@@ -1,6 +1,4 @@
-package edu.msoe;
-
-import calculator.Calculator;
+package msoe;
 
 public class Main {
 

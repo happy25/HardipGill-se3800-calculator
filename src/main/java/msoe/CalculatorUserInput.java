@@ -1,7 +1,6 @@
-package edu.msoe;
+package msoe;
 
 import calculator.Calculator;
-import logging.Logger;
 
 import java.util.Scanner;
 

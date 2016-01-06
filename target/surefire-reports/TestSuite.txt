@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 68, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.096 sec <<< FAILURE!
+testStandardOperations(calculator.CalculatorTest)  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<ADD [1.0, 2.0, 3.0] Answer: 6.0
+SUB [3.0, 2.0, 1.0] Answer: 0.0
+MULT [3.0, 2.0, 2.0] Answer: 12.0
+DIV [6.0, 2.0, 3.0] Answer: 1.0
+SQR [4.0] Answer: 16.0> but was:<SUB [2.0] Answer: 2.0
+ADD [1.0, 2.0] Answer: 3.0
+SUB [2.0] Answer: 2.0
+ADD [1.0, 2.0, 3.0] Answer: 6.0
+SUB [3.0, 2.0, 1.0] Answer: 0.0
+MULT [3.0, 2.0, 2.0] Answer: 12.0
+DIV [6.0, 2.0, 3.0] Answer: 1.0
+SQR [4.0] Answer: 16.0>
+	at org.testng.Assert.fail(Assert.java:89)
+	at org.testng.Assert.failNotEquals(Assert.java:489)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:171)
+	at org.testng.Assert.assertEquals(Assert.java:181)
+	at calculator.CalculatorTest.testStandardOperations(CalculatorTest.java:93)
+

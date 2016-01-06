@@ -89,7 +89,7 @@ public class CalculatorTest {
     {
         calculator.executeCommand(commands[index]);
         String output = outContent.toString().replace(INSTRUCTIONS_TEXT,"").trim();//remove the instructions text.
-        assertEquals(commandResponses[index].trim(), output);
+        assertEquals(output,commandResponses[index].trim());
     }
     @Test
    public void testSubstitutionOperations(){
