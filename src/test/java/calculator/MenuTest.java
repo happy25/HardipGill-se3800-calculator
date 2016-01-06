@@ -32,19 +32,17 @@ public class MenuTest {
         System.setIn(sysin);
         Main.main(null);
         String output = sysout.toString();
-        String expected = "Welcome to Hardip's and Patrick's Calculator\n" +
-                "\n" +
-                "Use command 'ADD' to add a list of numbers\n" +
-                "Use command 'SUB' to subtract a list of numbers\n" +
-                "Use command 'MULT' to multiply a list of numbers\n" +
-                "Use command 'DIV' to divide a list of numbers\n" +
-                "Use command 'SQR' to square a list of numbers\n" +
-                "Use command 'HIS' to view history\n" +
-                "Use command 'DEL' to delete history\n" +
-                "\n" +
-                "Use placeholder '!#' to reference a previous result (# being the result number in history\n" +
-                "Goodbye!\n";
-        assertEquals(output,expected);
+        String expected = "Welcome to Hardip's and Patrick's Calculator" +
+                "Use command 'ADD' to add a list of numbers" +
+                "Use command 'SUB' to subtract a list of numbers" +
+                "Use command 'MULT' to multiply a list of numbers" +
+                "Use command 'DIV' to divide a list of numbers" +
+                "Use command 'SQR' to square a list of numbers" +
+                "Use command 'HIS' to view history" +
+                "Use command 'DEL' to delete history" +
+                "Use placeholder '!#' to reference a previous result (# being the result number in history" +
+                "Goodbye!";
+        assertEquals(output.trim().replace("\n", "").replace("\r", ""),expected);
     }
 
 
