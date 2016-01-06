@@ -60,13 +60,13 @@ public class LoggerTest {
 
     @BeforeMethod
     public void setUp() throws Exception {
+        Logger.getInstance().clearLogHistory();         // clear out logger
         System.setOut(new PrintStream(outContent));     // set the outContent as holding the printed text
     }
 
     @AfterMethod
     public void tearDown() throws Exception {
         outContent.reset();                             // clear contents of outContent
-        Logger.getInstance().clearLogHistory();         // clear log history
         System.setOut(null);                            // reset System.out
     }
 
