@@ -1,9 +1,1 @@
-operation\DivOperationTest.class
-operation\CustomAssert.class
-computation\ComputationTest.class
-calculator\CalculatorTest.class
-operation\MultOperationTest.class
-operation\SqrOperationTest.class
-operation\SubOperationTest.class
-logger\LoggerTest.class
-operation\AddOperationTest.class
+calculator/MenuTest.class
