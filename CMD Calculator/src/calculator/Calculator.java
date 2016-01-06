@@ -51,6 +51,7 @@ public class Calculator {
                 break;
             case "SQR":
                 conductOperation(new SqrOperation(),inputArray);
+                break;
             case "HIS":
                 logger.printNLogs(logger.getNumLogs());
                 break;

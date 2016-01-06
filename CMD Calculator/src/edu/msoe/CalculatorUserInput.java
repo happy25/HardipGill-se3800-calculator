@@ -17,7 +17,7 @@ public class CalculatorUserInput {
         Scanner s = new Scanner(System.in);
         while(cont){
             showInstructions();
-            c.executeCommand(s.nextLine());
+            cont = c.executeCommand(s.nextLine());
         }
         System.out.println("Goodbye!");
     }
