@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite hostname="Pat-Z-MBP.nebula.msoe.edu" name="calculator.CalculatorTest" tests="73" failures="0" timestamp="6 Jan 2016 21:26:11 GMT" time="0.07" errors="0">
+<testsuite hostname="MSOE-CND52919J1" name="calculator.CalculatorTest" tests="73" failures="0" timestamp="17 Jan 2016 22:44:15 GMT" time="0.077" errors="0">
   <testcase name="testStandardOperations" time="0.004" classname="calculator.CalculatorTest"/>
+  <testcase name="testStandardOperations" time="0.002" classname="calculator.CalculatorTest"/>
   <testcase name="testStandardOperations" time="0.001" classname="calculator.CalculatorTest"/>
   <testcase name="testStandardOperations" time="0.001" classname="calculator.CalculatorTest"/>
-  <testcase name="testStandardOperations" time="0.001" classname="calculator.CalculatorTest"/>
-  <testcase name="testStandardOperations" time="0.001" classname="calculator.CalculatorTest"/>
+  <testcase name="testStandardOperations" time="0.002" classname="calculator.CalculatorTest"/>
   <testcase name="testStandardOperations" time="0.0" classname="calculator.CalculatorTest"/>
   <testcase name="testStandardOperations" time="0.0" classname="calculator.CalculatorTest"/>
   <testcase name="testStandardOperations" time="0.0" classname="calculator.CalculatorTest"/>
-  <testcase name="testInput" time="0.01" classname="calculator.MenuTest"/>
+  <testcase name="testInput" time="0.02" classname="calculator.MenuTest"/>
   <testcase name="testComputationString" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
+  <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
+  <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
+  <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testConstructor" time="0.001" classname="computation.ComputationTest"/>
-  <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
-  <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
-  <testcase name="testConstructor" time="0.0" classname="computation.ComputationTest"/>
-  <testcase name="testGetName" time="0.001" classname="computation.ComputationTest"/>
+  <testcase name="testGetName" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testGetNumberList" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testGetResult" time="0.0" classname="computation.ComputationTest"/>
   <testcase name="testClearLogHistory" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testGetComputation" time="0.001" classname="logger.LoggerTest"/>
+  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
+  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
+  <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testGetComputation" time="0.0" classname="logger.LoggerTest"/>
@@ -32,25 +32,25 @@
   <testcase name="testGetInstance" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testLog" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testPrintMostRecentLog" time="0.0" classname="logger.LoggerTest"/>
+  <testcase name="testPrintNLogs" time="0.001" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.001" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
+  <testcase name="testPrintNLogs" time="0.001" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
   <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testPrintNLogs" time="0.0" classname="logger.LoggerTest"/>
-  <testcase name="testAddBoth" time="0.001" classname="operation.AddOperationTest"/>
+  <testcase name="testAddBoth" time="0.0" classname="operation.AddOperationTest"/>
   <testcase name="testAddNegatives" time="0.0" classname="operation.AddOperationTest"/>
-  <testcase name="testAddPositives" time="0.0" classname="operation.AddOperationTest"/>
+  <testcase name="testAddPositives" time="0.001" classname="operation.AddOperationTest"/>
   <testcase name="testEmptyNumberList" time="0.0" classname="operation.AddOperationTest"/>
   <testcase name="testNullList" time="0.0" classname="operation.AddOperationTest"/>
-  <testcase name="testValueSize" time="0.0" classname="operation.AddOperationTest"/>
+  <testcase name="testValueSize" time="0.001" classname="operation.AddOperationTest"/>
   <testcase name="testDivideBoth" time="0.0" classname="operation.DivOperationTest"/>
   <testcase name="testDivideNegatives" time="0.0" classname="operation.DivOperationTest"/>
   <testcase name="testDividePositives" time="0.0" classname="operation.DivOperationTest"/>
-  <testcase name="testEmptyList" time="0.001" classname="operation.DivOperationTest"/>
-  <testcase name="testValueSize" time="0.0" classname="operation.DivOperationTest"/>
+  <testcase name="testEmptyList" time="0.0" classname="operation.DivOperationTest"/>
+  <testcase name="testValueSize" time="0.001" classname="operation.DivOperationTest"/>
   <testcase name="testEmptyList" time="0.0" classname="operation.MultOperationTest"/>
   <testcase name="testMultiplyBoth" time="0.0" classname="operation.MultOperationTest"/>
   <testcase name="testMultiplyNegative" time="0.0" classname="operation.MultOperationTest"/>
@@ -60,17 +60,17 @@
   <testcase name="testMoreThanOneElementList" time="0.0" classname="operation.SqrOperationTest"/>
   <testcase name="testNegativeNumbers" time="0.0" classname="operation.SqrOperationTest"/>
   <testcase name="testPositiveNumbers" time="0.0" classname="operation.SqrOperationTest"/>
-  <testcase name="testValueSize" time="0.0" classname="operation.SqrOperationTest"/>
-  <testcase name="testBoth" time="0.001" classname="operation.SubOperationTest"/>
-  <testcase name="testEmptyList" time="0.0" classname="operation.SubOperationTest"/>
+  <testcase name="testValueSize" time="0.001" classname="operation.SqrOperationTest"/>
+  <testcase name="testBoth" time="0.0" classname="operation.SubOperationTest"/>
+  <testcase name="testEmptyList" time="0.001" classname="operation.SubOperationTest"/>
   <testcase name="testNegativeNumbers" time="0.0" classname="operation.SubOperationTest"/>
   <testcase name="testPositiveNumbers" time="0.0" classname="operation.SubOperationTest"/>
-  <testcase name="testValueSize" time="0.001" classname="operation.SubOperationTest"/>
-  <testcase name="testBadCommand" time="0.0" classname="calculator.CalculatorTest"/>
+  <testcase name="testValueSize" time="0.0" classname="operation.SubOperationTest"/>
+  <testcase name="testBadCommand" time="0.001" classname="calculator.CalculatorTest"/>
   <testcase name="testExit" time="0.0" classname="calculator.CalculatorTest"/>
   <testcase name="testInvalidIntegerSubtitution" time="0.0" classname="calculator.CalculatorTest"/>
-  <testcase name="testLargeIntegerSubstitution" time="0.001" classname="calculator.CalculatorTest"/>
-  <testcase name="testNonInteger" time="0.001" classname="calculator.CalculatorTest"/>
+  <testcase name="testLargeIntegerSubstitution" time="0.0" classname="calculator.CalculatorTest"/>
+  <testcase name="testNonInteger" time="0.0" classname="calculator.CalculatorTest"/>
   <testcase name="testNonIntegerSubstitution" time="0.001" classname="calculator.CalculatorTest"/>
-  <testcase name="testSubstitutionOperations" time="0.001" classname="calculator.CalculatorTest"/>
+  <testcase name="testSubstitutionOperations" time="0.0" classname="calculator.CalculatorTest"/>
 </testsuite>
